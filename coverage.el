@@ -535,7 +535,7 @@ SOURCE is a dotted pair (TOOL . FILE-NAME).
                 ;; Use 'go list' to avoid handling GOPATH, vendoring etc.
                 (cl-letf ((files (cov--profile-files profile)))
                   (when files
-                    (concat (car (cov--go-list-root files)) "src/"))))))
+                    (concat (file-name-as-directory (car (cov--go-list-root files))) "src/"))))))
 
 (cl-defun cov--go-list-root (files)
   (apply 'process-lines
